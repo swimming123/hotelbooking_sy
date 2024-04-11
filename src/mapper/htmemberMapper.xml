@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hmb">
+	<insert id="add" parameterType="htmvo">
+		insert into htmembers(num, id, pwd, name, email, tel, birth, reip, mdate)
+		   values(members_seq.nextval, #{id}, #{pwd}, #{name}, #{email}, #{tel}, #{birth}, 0, sysdate)
+	</insert>
+	<select id="list" resultType="htmvo">
+		select num, id, pwd, name, email, tel, reip, mdate from htmembers
+	</select>
+	<!-- login 처리 
+		SELECT id, NAME FROM members WHERE id='xman' AND pwd='1234';
+	-->
+	<select id="idcheck" parameterType="String" resultType="int">
+		select count(*) cnt from htmembers where id=#{id}
+	</select>
+	<select id="loginchk" resultType="htmvo" parameterType="htmvo">
+		select id, name from htmembers where id=#{id} and pwd=#{pwd}
+	</select>
+	<select id="mypage" parameterType="String" resultType="htmvo">
+		select num,id,name,tel,email from htmembers where id=#{id}
+	</select>
+</mapper>
