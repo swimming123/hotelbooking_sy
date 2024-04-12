@@ -4,12 +4,12 @@
 <article>
 	<!-- 추천 호텔 영역 시작-->
 	<section class="bg-light text-center">
-		<h2>상세페이지</h2>
+		<h2>어드민으로 가야 할 수정/삭제 페이지</h2>
 		<div class="row">
 			
 				<div class="col-lg-4">
 					<div class="mx-auto mt-5 mb-5 mb-lg-0 mx-auto mb-5 mb-lg-0 mb-lg-3">
-						<img class="mb-5" src="${rPath }/img/${thtlist.tHtImg}" alt="..." />
+						<img class="mb-5" width: 150px; src="${rPath }/img/${thtlist.tHtImg}" alt="..." />
 					</div>
 					<h3>${thtlist.tHtName}</h3>
 					<p class="lead mb-0">${thtlist.tHtGrade}점</p>

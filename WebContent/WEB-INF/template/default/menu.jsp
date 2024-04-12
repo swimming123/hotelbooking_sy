@@ -9,11 +9,11 @@
 			<li class="nav-item" dropdown><a
 				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Board </a>
+					test </a>
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="${cPath}/todayHtList">FBoard</a></li>
-					<li><a class="dropdown-item" href="${cPath}/upList">Board</a></li>
-					<li><a class="dropdown-item" href="${cPath}/login/myloginfo">myloginfo</a></li>
+					<li><a class="dropdown-item" href="${cPath}/todayHtWrite">오늘뜨는호텔등록</a></li>
+					<li><a class="dropdown-item" href="${cPath}/todayHtList">메인리스트</a></li>
+					<li><a class="dropdown-item" href="#">test</a></li>
 				</ul></li>
 			<li class="nav-item"><a href="${cPath}/todayHtList"
 				class="nav-link">main</a></li>

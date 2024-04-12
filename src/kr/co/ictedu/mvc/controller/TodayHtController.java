@@ -34,7 +34,7 @@ public class TodayHtController {
 	public String todayHtDetail(@RequestParam("tHtNum") int tHtNum, Model m) {
 		TodayHtDTO tht = todayHtDaoInter.detailTodayHt(tHtNum);
 		m.addAttribute("thtlist", tht);
-		return "hotel/thtDetail";
+		return "hotel/thtAdmin";
 
 	}
 	@GetMapping("/todayHtWrite")
@@ -50,11 +50,11 @@ public class TodayHtController {
 		if (oriFn.length() > 0) {
 			String img_path = "resources\\imgfile";
 			String r_path = request.getSession().getServletContext().getRealPath("/");
-			System.out.println("r_path:" + r_path);
+			//System.out.println("r_path:" + r_path);
 			StringBuffer path = new StringBuffer();
 			path.append(r_path).append(img_path).append("\\");
 			path.append(oriFn);
-			System.out.println("FullPath" + path);
+			//System.out.println("FullPath" + path);
 			File f = new File(path.toString());
 			if (!f.exists()) {
 				f.mkdirs();
@@ -67,11 +67,11 @@ public class TodayHtController {
 			vo.settHtImg(oriFn);
 			long size = mf.getSize();
 			String contentType = mf.getContentType();
-			System.out.println("파일 크기:" + size);
-			System.out.println("파일의 type:" + contentType);
+			//System.out.println("파일 크기:" + size);
+			//System.out.println("파일의 type:" + contentType);
 		}
 		todayHtDaoInter.addTodayHt(vo);
-		return "redirect:main";
+		return "redirect:todayHtList";
 	}
 
 	@GetMapping("/todayHtUpdate")

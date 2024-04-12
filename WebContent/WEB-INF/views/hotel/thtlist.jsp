@@ -8,8 +8,7 @@
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
 					<div class="text-center text-white">
-						<form class="form-subscribe" id="contactForm"
-							data-sb-form-api-token="API_TOKEN" action="main">
+						<form method="post" class="form-subscribe" id="contactForm" action="">
 							<div class="col">
 								<p>여행하실 도시를 입력해주세요.</p>
 								<input class="form-control form-control mb-1" id="citiName"
@@ -24,21 +23,10 @@
 								<input class="form-control form-control mb-1" id="stayDate"
 									type="number" placeholder="원하시는 숙박일을 입력해주세요." max="10" />
 								<div align="right">
-									<button class="btn btn-primary btn-lg disabled"
-										id="submitButton" type="submit">검색하기</button>
+									<button class="btn btn-primary btn-lg" id="submitButton" type="submit">검색하기</button>
 								</div>
 							</div>
 							<!-- 검색영역끝-->
-							<div class="d-none" id="submitSuccessMessage">
-								<div class="text-center mb-3">
-									<div class="fw-bolder">최저가 호텔을 검색중입니다!</div>
-									<p>...</p>
-								</div>
-							</div>
-
-							<div class="d-none" id="submitErrorMessage">
-								<div class="text-center text-danger mb-3">다시 검색해주세요!</div>
-							</div>
 						</form>
 					</div>
 				</div>
@@ -56,22 +44,22 @@
 			<c:forEach var="e" items="${thtlist}">
 				<div class="col-lg-4">
 					<div class="mx-auto mt-5 mb-5 mb-lg-0 mx-auto mb-5 mb-lg-0 mb-lg-3">
-						<img class="mb-5" src="${rPath }/img/${e.tHtImg}" alt="..." />
+						<img class="mb-5" src="${rPath }/img/${e.tHtImg}" alt="..." style="width:216px; height:216px;" />
 					</div>
 					<h3>
 						<a href="todayHtDetail?tHtNum=${e.tHtNum }">${e.tHtName}</a>
 					</h3>
-					<p class="lead mb-0">${e.tHtGrade}점</p>
+					<div class="d-flex justify-content-center small text-warning mb-2">
+					<div class="bi-star-fill"> ${e.tHtGrade}점</div>
+					</div>
+					
 					<p class="lead mb-2">${e.tHtPrice}원부터~</p>
-					<button class="btn btn-primary btn-lg disabled" id="bookingButton1"
-						type="submit">예약하기</button>
+					<button class="btn btn-primary btn-lg" id="bookingButton1"
+						type="button" onclick="location.href='todayHtDetail?tHtNum=${e.tHtNum }'">예약하기</button>
 				</div>
 			</c:forEach>
 		</div>
-		<div>
-			<button type="button" class="btn btn-outline-secondary"
-				onclick="location='todayHtWrite'">작성</button>
-		</div>
+
 	</section>
 	<!-- 호텔 상품 영역 시작-->
 	<section class="testimonials text-center bg-light">
@@ -85,7 +73,13 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/seoul_glad.jpg " alt="..." /></a>
 						<h5>글래드호텔</h5>
-						<p class="font-weight-light mb-0">*****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">매우 좋음 9.2</p>
 						<p class="font-weight-light mb-0">서울,대한민국</p>
 					</div>
@@ -96,7 +90,11 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/seoul_ninetree.jpg" alt="..." /></a>
 						<h5>나인트리 프리미어 호텔</h5>
-						<p class="font-weight-light mb-0">***</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">보통 6.4</p>
 						<p class="font-weight-light mb-0">서울,대한민국</p>
 					</div>
@@ -109,7 +107,12 @@
 							src="${rPath }/img/seoul_novotel.jpg" alt="..." />
 						</a>
 						<h5>노보텔 앰배서더 서울 용산</h5>
-						<p class="font-weight-light mb-0">****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">좋음 7.6</p>
 						<p class="font-weight-light mb-0">서울,대한민국</p>
 					</div>
@@ -123,7 +126,13 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/busan_paradise.jpg" alt="..." /></a>
 						<h5>파라다이스 호텔 부산</h5>
-						<p class="font-weight-light mb-0">*****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">훌륭함 9.2</p>
 						<p class="font-weight-light mb-0">부산,대한민국</p>
 					</div>
@@ -135,7 +144,12 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/busan_shillastay.jpg" alt="..." /></a>
 						<h5>신라스테이 해운대</h5>
-						<p class="font-weight-light mb-0">****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">좋음 8.2</p>
 						<p class="font-weight-light mb-0">부산,대한민국</p>
 					</div>
@@ -147,7 +161,13 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/busan_signiel.jpg" alt="..." /></a>
 						<h5>시그니엘 부산</h5>
-						<p class="font-weight-light mb-0">*****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">매우 좋음 9.4</p>
 						<p class="font-weight-light mb-0">부산,대한민국</p>
 					</div>
@@ -161,7 +181,13 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/jeju_shilla.jpg" alt="..." /></a>
 						<h5>제주신라호텔</h5>
-						<p class="font-weight-light mb-0">*****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">매우 좋음 9.2</p>
 						<p class="font-weight-light mb-0">제주,대한민국</p>
 					</div>
@@ -173,7 +199,12 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/jeju_ramada.jpg" alt="..." /></a>
 						<h5>라마다 프라자 제주</h5>
-						<p class="font-weight-light mb-0">****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">좋음 8.2</p>
 						<p class="font-weight-light mb-0">제주,대한민국</p>
 					</div>
@@ -185,15 +216,17 @@
 							class="img-fluid rounded-circle mb-3"
 							src="${rPath }/img/jeju_parnas.jpg" alt="..." /></a>
 						<h5>파르나스 호텔 제주</h5>
-						<p class="font-weight-light mb-0">*****</p>
+						<div class="d-flex justify-content-center small text-warning mb-2">
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+							<div class="bi-star-fill"></div>
+						</div>
 						<p class="font-weight-light mb-0">매우 좋음 9.4</p>
 						<p class="font-weight-light mb-0">제주,대한민국</p>
 					</div>
 				</div>
-			</div>
-			<div align="right">
-				<button onclick="location='todayHotelWrite'"
-					class="btn btn-primary btn-lg disabled">등록하기</button>
 			</div>
 		</div>
 	</section>

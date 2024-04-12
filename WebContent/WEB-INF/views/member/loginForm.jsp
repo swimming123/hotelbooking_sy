@@ -7,7 +7,7 @@
     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
     <div class="login-form">
       <div class="sign-in-htm">
-      <form action="loginProcess" method="post" id="loginInfo">
+      <form action="loginProcess" id="loginInfo" method="post">
         <div class="group">
           <label for="id" class="label">아이디</label>
           <input id="id" name="id" type="text" class="input">
@@ -15,10 +15,6 @@
         <div class="group">
           <label for="pwd" class="label">비밀번호</label>
           <input id="pwd" name="pwd" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <input id="check" type="checkbox" class="check" checked>
-          <label for="check"><span class="icon"></span> 계속 로그인 하고 있을게요! </label>
         </div>
         <div class="group">
           <input type="submit" class="button" value="로그인">

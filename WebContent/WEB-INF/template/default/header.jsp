@@ -22,7 +22,7 @@
 				<%-- 로그인 후 --%>
 				<div>
 					<button type="button" id="signout"
-						onclick="location.href='${cPath }/login/logout'"
+						onclick="location='logout'"
 						class="btn btn-primary">Logout</button>
 				</div>
 				<div>
@@ -37,18 +37,6 @@
 				name="searchv" id="searchv">
 			<button class="btn btn-primary" type="button">Search</button>
 		</form>
-		<div>
-			<button type="button" class="btn btn-outline-secondary"
-				onclick="location='todayHtWrite'">등록</button>
-		</div>
-		<div>
-			<button type="button" class="btn btn-outline-secondary"
-				onclick="location='todayHtList'">리스트</button>
-		</div>
-		<div>
-			<button type="button" class="btn btn-outline-secondary"
-				onclick="location=''">test</button>
-		</div>
 	</div>
 
 </header>
