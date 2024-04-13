@@ -145,7 +145,7 @@ h3, .h3 {
     font-size: 1.75rem;
   }
 }
-
+h3 a{color:inherit;text-decoration:none}
 h4, .h4 {
   font-size: calc(1.275rem + 0.3vw);
 }
@@ -10868,7 +10868,6 @@ header.masthead h1, header.masthead .h1 {
     font-size: 3rem;
   }
 }
-
 .showcase .showcase-text {
   padding: 3rem;
 }
