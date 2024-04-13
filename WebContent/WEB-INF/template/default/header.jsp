@@ -13,7 +13,7 @@
 						class="btn btn-primary">Login</button>
 				</div>
 				<div>
-					<button type="button" class="btn btn-outline-secondary">X</button>
+					<button type="button" class="btn btn-outline-secondary" >X</button>
 					<%--<button type="hidden" id="signup1" onclick="location.href='${cPath }/member/memForm'" class="btn btn-outline-secondary">회원가입</button>--%>
 				</div>
 
