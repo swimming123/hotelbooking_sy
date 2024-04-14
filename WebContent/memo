@@ -1,0 +1,103 @@
+환율정보 api 
+python으로 api 받기 성공! 0414 > main.jsp에 롤링배너 하단에 띄우기 시도 중
+- views.py
+def exchangeDemo(request):
+    # currencylayer API 키
+    API_KEY = "9e68eaf0e68f8b577ddbd833fe6fef6f"
+
+    # API 요청을 위한 기본 URL
+    BASE_URL = "http://api.currencylayer.com/"
+    end_point = 'live'
+    url = f'{BASE_URL}{end_point}'
+
+    # API 요청을 위한 파라미터
+    params = {
+        'access_key': API_KEY,
+        'source': 'USD',  # default
+        'currencies': 'KRW, JPY, EUR'
+    }
+
+    # API 요청, 응답 수신, 출력
+    response = requests.get(url, params=params)
+    data = response.json()
+    print(data)
+    print(type(data))
+
+    # quotes 자료만 추출하여 전달
+    quotes_data = data.get('quotes', {})
+    usd_to_kor = quotes_data.get('USDKRW')
+    jpy = quotes_data.get('USDJPY')
+    jpy_to_kor = jpy/usd_to_kor
+    print(jpy, jpy_to_kor)
+    eur= quotes_data.get('USDEUR')
+    eur_to_kor = eur/usd_to_kor
+    print(eur, eur_to_kor)
+
+
+    return render(request, "survey/exchange.html",
+                  {'data': data, 'quotes_data': quotes_data, 'usd_to_kor':usd_to_kor, 'jpy_to_kor':jpy_to_kor, 'eur_to_kor':eur_to_kor})
+
+                  
+                  
+  urls.py
+      path('exchange', views.exchangeDemo),
+      
+      
+      
+  exchange.html
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>JSON!!</title>
+    <style>
+    table {
+    border-collapse: collapse;
+    }
+    td {
+    border:1px solid black;
+    }
+    </style>
+</head>
+<body>
+
+<h1>Quotes Data</h1>
+<ul>
+  {% for key, value in quotes_data.items %}
+    <li>'{{ key }}': {{ value }}</li>
+  {% endfor %}
+    <li>usd_to_kor :{{usd_to_kor}}</li>
+    <li>jpy_to_kor :{{jpy_to_kor}}</li>
+    <li>eur_to_kor :{{eur_to_kor}}</li>
+</ul>
+
+<table id="data_table">
+    <thead>
+      <tr>
+        <th>success</th>
+        <th>terms</th>
+        <th>privacy</th>
+        <th>timestamp</th>
+        <th>source</th>
+        <th>quotes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ data.success }}</td>
+        <td>{{ data.terms }}</td>
+        <td>{{ data.privacy }}</td>
+        <td>{{ data.timestamp }}</td>
+        <td>{{ data.source }}</td>
+        <td>{{ data.quotes }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+
+</body>
+</html>
+  

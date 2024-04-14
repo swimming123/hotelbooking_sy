@@ -44,8 +44,20 @@
 	                </div>
 				</li>
 			</ul>
+			
 		</div>
 	</div>
+
+	<div class="desc">
+	    <strong>환율정보</strong>
+	    <p id="exchangeRate"></p>
+	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+					<script src="${rPath }/js/exchange.js"></script>
+	    <c:forEach var="key" items="${quotes_data}">
+	        <p>${key}: ${quotes_data[key]}</p>
+	    </c:forEach>
+	</div>
+
 </section>
 	<script>
 	//롤링 배너 복제본 생성
@@ -64,7 +76,6 @@
 	roller.classList.add('original');
 	clone.classList.add('clone');
 	</script>
-	
 		<!-- 검색영역시작-->
 	<section class="bg-light text-center">
 	
