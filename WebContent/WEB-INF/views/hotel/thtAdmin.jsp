@@ -6,11 +6,12 @@
 	<section class="bg-light text-center">
 		<h2>어드민으로 가야 할 수정/삭제 페이지</h2>
 		<div class="container position-relative">
+		<form action="todayHtUp" method="post" id="todayHtUp"
+						class="form-subscribe" enctype="multipart/form-data">
 			<div class="row justify-content-center">
 				<div class="col-xl-6">
-					<form action="todayHtUpdate" method="post" id="todayHtUpdate"
-						class="form-subscribe" enctype="multipart/form-data">
 						<div class="text-black">
+						<input type="hidden" name="tHtNum" value="${thtlist.tHtNum}">
 							<div class="col">
 								<label for="mfile"><p>이미지</p></label>
 								<div class="col-sm-10">
@@ -18,6 +19,7 @@
 									<img src="${rPath }/img/${thtlist.tHtImg}" id="imgx"
 										style="width: 500px; border: dotted 1px; margin: 5px 5px">
 								</div>
+								
 								<div class="col-sm-10">
 									<input type="file" class="form-control form-control mb-1"
 										id="mfile" name="mfile">
@@ -45,16 +47,15 @@
 
 						</div>
 
-					</form>
+					
 				</div>
 			</div>
 			<div class="text-center">
-				<button type="button" class="btn btn-outline-secondary"
-					onclick="location='todayHtUpdate'">수정하기</button>
+				<button type="submit" class="btn btn-outline-secondary">수정하기</button>
 				<button type="button" class="btn btn-primary"
 					onclick="location='todayHtList'">목록</button>
 			</div>
-
+		</form>
 		</div>
 	</section>
 </article>

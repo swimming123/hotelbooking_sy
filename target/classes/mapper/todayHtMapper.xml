@@ -9,7 +9,7 @@
 	<select id="list" resultType="thtvo">
 		select * from todayHotel order by 1 desc
 	</select>
-	<select id="detail" parameterType="java.lang.Integer" resultType="thtvo">
+	<select id="detail" parameterType="int" resultType="thtvo">
     select tHtNum, tHtName, tHtGrade, tHtPrice, tHtImg  from todayHotel where tHtNum=#{tHtNum}
 </select>
 	

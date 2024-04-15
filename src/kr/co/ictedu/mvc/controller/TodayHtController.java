@@ -82,8 +82,32 @@ public class TodayHtController {
 	}
 
 	@PostMapping("/todayHtUp")
-	public String todayHtUp(@RequestParam("tHtNum") int tHtNum, TodayHtDTO vo) {
-		vo.settHtNum(tHtNum); // tHtNum을 DTO에 설정
+	public String todayHtUp(Model m, TodayHtDTO vo, HttpServletRequest request) {
+		MultipartFile mf = vo.getMfile();
+		String oriFn = mf.getOriginalFilename();
+		if (oriFn.length() > 0) {
+			String img_path = "resources\\imgfile";
+			String r_path = request.getSession().getServletContext().getRealPath("/");
+			//System.out.println("r_path:" + r_path);
+			StringBuffer path = new StringBuffer();
+			path.append(r_path).append(img_path).append("\\");
+			path.append(oriFn);
+			//System.out.println("FullPath" + path);
+			File f = new File(path.toString());
+			if (!f.exists()) {
+				f.mkdirs();
+			}
+			try {
+				mf.transferTo(f);
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+			vo.settHtImg(oriFn);
+			long size = mf.getSize();
+			String contentType = mf.getContentType();
+			//System.out.println("파일 크기:" + size);
+			//System.out.println("파일의 type:" + contentType);
+		}
 		todayHtDaoInter.updateTodayHt(vo);
 		return "redirect:todayHtList";
 	}

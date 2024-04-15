@@ -6,7 +6,7 @@
 	<section class="bg-light text-center">
 		<h2>어드민으로 가야 할 수정/삭제 페이지</h2>
 		<div class="row">
-			
+			<input type="hidden" name="tHtNum" value="${thtlist.tHtNum}">	
 				<div class="col-lg-4">
 					<div class="mx-auto mt-5 mb-5 mb-lg-0 mx-auto mb-5 mb-lg-0 mb-lg-3">
 						<img class="mb-5" width: 150px; src="${rPath }/img/${thtlist.tHtImg}" alt="..." />
@@ -30,7 +30,7 @@
 						type="submit">예약하기</button>
 				</div>
 			<button type="button" class="btn btn-outline-secondary"
-				onclick="location='todayHtUpdate'">수정하기</button>
+				onclick="location.href='todayHtUp?tHtNum=${e.tHtNum }'">수정하기</button>
 		</div>
 	</section>
 </article>
