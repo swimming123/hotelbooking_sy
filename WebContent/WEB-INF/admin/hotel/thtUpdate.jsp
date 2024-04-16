@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <article>
+<!-- 안씁니다.-->
 	<!-- 추천 호텔 영역 시작-->
 	<section class="bg-light text-center">
 		<h2>등록테스트</h2>

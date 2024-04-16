@@ -31,6 +31,6 @@ public class DefaultController {
     public String reservation(Model m) {
         // reservation 임시 페이지 로직
     	m.addAttribute("pageType", "reservation");
-        return "main/reservation";
+        return "reservation/reservation";
     }
 }

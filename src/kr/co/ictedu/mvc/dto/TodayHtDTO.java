@@ -3,17 +3,17 @@ package kr.co.ictedu.mvc.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class TodayHtDTO {
-	private Integer tHtNum;
+	private int tHtNum;
 	private String tHtName;
-	private Integer tHtGrade;
-	private Integer tHtPrice;
+	private int tHtGrade;
+	private int tHtPrice;
 	private String tHtImg;
 	private String tHtWrtDt;
 	private MultipartFile mfile;
-	public Integer gettHtNum() {
+	public int gettHtNum() {
 		return tHtNum;
 	}
-	public void settHtNum(Integer tHtNum) {
+	public void settHtNum(int tHtNum) {
 		this.tHtNum = tHtNum;
 	}
 	public String gettHtName() {
@@ -22,16 +22,16 @@ public class TodayHtDTO {
 	public void settHtName(String tHtName) {
 		this.tHtName = tHtName;
 	}
-	public Integer gettHtGrade() {
+	public int gettHtGrade() {
 		return tHtGrade;
 	}
-	public void settHtGrade(Integer tHtGrade) {
+	public void settHtGrade(int tHtGrade) {
 		this.tHtGrade = tHtGrade;
 	}
-	public Integer gettHtPrice() {
+	public int gettHtPrice() {
 		return tHtPrice;
 	}
-	public void settHtPrice(Integer tHtPrice) {
+	public void settHtPrice(int tHtPrice) {
 		this.tHtPrice = tHtPrice;
 	}
 	public String gettHtImg() {
@@ -52,5 +52,6 @@ public class TodayHtDTO {
 	public void setMfile(MultipartFile mfile) {
 		this.mfile = mfile;
 	}
+	
 	
 }

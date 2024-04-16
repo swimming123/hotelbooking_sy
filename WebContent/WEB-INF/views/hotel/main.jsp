@@ -148,7 +148,7 @@
 						<p class="lead mb-2">${e.tHtPrice}원부터~</p>
 						<button class="btn btn-primary btn-lg" id="bookingButton1"
 							type="button"
-							onclick="location.href='todayHtDetail?tHtNum=${e.tHtNum }'">예약하기</button>
+							onclick="location.href='write'">예약하기</button>
 					</div>
 				</c:forEach>
 			</div>
