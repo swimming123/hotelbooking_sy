@@ -12,12 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.ictedu.admin.dao.TodayHtDaoInter;
 import kr.co.ictedu.mvc.dto.TodayHtDTO;
 
-
+@SessionAttributes("pageType")
 @Controller
 public class AdminController {
 	
@@ -34,19 +35,27 @@ public class AdminController {
 	        System.out.println("thtGrade: " + e.gettHtGrade());
 	        System.out.println("thtPrice: " + e.gettHtPrice());
 	    }
+	    model.addAttribute("pageType", "todayHtList");
 		return "admin/index";
 	}
+	
+	@GetMapping("/todayHtprv")
+	public String todayHtprv(Model m) {
+		List<TodayHtDTO> thtlist = todayHtDaoInter.listTodayHt();
+		m.addAttribute("thtlist", thtlist);
+		return "";
+	}
+	
 	@GetMapping("/todayHtDetail")
 	public String todayHtDetail(@RequestParam("tHtNum") int tHtNum, Model m) {
 		TodayHtDTO tht = todayHtDaoInter.detailTodayHt(tHtNum);
 		m.addAttribute("thtlist", tht);
-		return "hotel/thtAdmin";
+		return "hotel/admThtUpdate";
 	}
 	
 	@GetMapping("/todayHtWrite")
 	public String todayHtForm(Model m) {
-		m.addAttribute("pageType", "todayHtList");
-		return "hotel/write";
+		return "hotel/admThtWrite";
 	}
 	
 	@GetMapping("/todayHtDelete")

@@ -129,7 +129,7 @@
 			<br>
 		</div>
 		<div class="container">
-			<h2>등록테스트</h2>
+			<h2>오늘의 추천 호텔</h2>
 			<div class="row">
 				<c:forEach var="e" items="${thtlist}">
 					<div class="col-lg-4 mb-3">

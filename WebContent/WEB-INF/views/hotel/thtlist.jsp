@@ -118,7 +118,7 @@
 			<br>
 		</div>
 		<div class="container">
-			<h2>등록테스트</h2>
+			<h2  class="bi-star-fill">오늘의 호텔</h2>
 			<div class="row">
 				<c:forEach var="e" items="${thtlist}">
 					<div class="col-lg-4 mb-3">
@@ -137,7 +137,7 @@
 						<p class="lead mb-2">${e.tHtPrice}원부터~</p>
 						<button class="btn btn-primary btn-lg" id="bookingButton1"
 							type="button"
-							onclick="location.href='todayHtDetail?tHtNum=${e.tHtNum }'">예약하기</button>
+							onclick="location.href='todayHtDetail?tHtNum=${e.tHtNum }'">상세보기</button>
 					</div>
 				</c:forEach>
 			</div>

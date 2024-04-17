@@ -56,8 +56,6 @@
 
  </head>
  <body>
-${rPath }
-${cPath }
 <!--  header.jsp -->
 <tiles:insertAttribute name="header"/>
 <%--  menu.jsp --%>
