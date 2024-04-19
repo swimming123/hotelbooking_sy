@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="thtvo">
+	<insert id="add" parameterType="thtvo">
+		insert into todayHotel (tHtNum, tHtName, tHtGrade, tHtPrice, tHtImg, tHtWrtDt)
+		values(todayHotel_seq.NEXTVAL, #{tHtName}, #{tHtGrade}, #{tHtPrice}, #{tHtImg}, sysdate )
+	</insert>
+
+	<select id="list" resultType="thtvo">
+		select * from todayHotel order by 1 desc
+	</select>
+	<select id="detail" parameterType="int" resultType="thtvo">
+    select tHtNum, tHtName, tHtGrade, tHtPrice, tHtImg  from todayHotel where tHtNum=#{tHtNum}
+</select>
+	
+	<update id="hit" parameterType="int">
+		update todayHotel set hit = hit+1 where tHtNum=#{tHtNum}
+	</update>
+	
+	<delete id ="del" parameterType="int">
+		delete from todayHotel where tHtNum=#{tHtNum}
+	</delete>
+
+	<update id="up" parameterType="thtvo">
+		update todayHotel 
+		set tHtName=#{tHtName}, tHtGrade=#{tHtGrade}, tHtPrice=#{tHtPrice}, tHtImg=#{tHtImg}, tHtWrtDt=sysdate  
+		where tHtNum=#{tHtNum}		
+	</update>
+</mapper>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script type="module">
+    import * as PusherPushNotifications from "@pusher/push-notifications-web";
+
+    // 다음 코드는 여기에 작성됩니다.
+</script>
+
+<script type="module">
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('${rPath}/js/service-worker.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                console.error('ServiceWorker registration failed: ', err);
+            });
+        });
+    } else {
+        console.log('Service workers are not supported.');
+    }
+</script>
+
+<script type="module">
+    const beamsClient = new PusherPushNotifications.Client({
+        instanceId: '660138c3-4db8-49a7-be89-856bcefacd40',
+    });
+
+    beamsClient.start()
+        .then(() => beamsClient.addDeviceInterest('hello'))
+        .then(() => console.log('Successfully registered and subscribed!'))
+        .catch(console.error);
+</script>
+
+</html>

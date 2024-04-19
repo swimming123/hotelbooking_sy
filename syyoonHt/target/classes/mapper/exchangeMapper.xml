@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="exm">
+<insert id="setExchageList" parameterType="java.util.List">
+	<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL" close="SELECT * FROM DUAL">
+		INTO KEB_COM_EXHG
+				    (BASIC_DATE
+		           , BASIC_SEQ
+		           , CURR_CD
+		           , NOTICE_TIME
+		           , BASIC_RATIO
+		           , CASH_BUY
+		           , CASH_SELL
+		           , TT_SELL
+		           , TT_BUY
+		           , TC_BUY
+		           , FC_SELL
+		           , BASIC_RATE
+		           , EXHG_CMMSSN
+		           , USA_CNVRSN
+		           , INS_DATETIME)
+		VALUES
+		(#{item.basicDate}
+	   , #{item.basicSeq}
+	   , #{item.currCD}
+	   , #{item.noticeTime}
+       , #{item.basicRatio}
+	   , #{item.cashBuy}
+	   , #{item.cashSell}
+	   , #{item.ttSell}
+       , #{item.ttBuy}
+	   , #{item.tcBuy}
+	   , #{item.fcSell}
+	   , #{item.basicRate}
+	   , #{item.exhgCmmssn}
+	   , #{item.usaCnvrsn}
+	   , SYSDATE)
+		</foreach>
+	</insert>
+</mapper>
