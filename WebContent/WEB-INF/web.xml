@@ -4,6 +4,10 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>syyoonHt</display-name>
+    <context-param>
+        <param-name>context-root</param-name>
+        <param-value>/WebContent</param-value>
+    </context-param>
 	<!-- 공통 빈 ContextLoaderListener -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

@@ -23,6 +23,10 @@ public class DefaultController {
 		m.addAttribute("thtlist", thtlist);
 		m.addAttribute("pageType", "todayHtList");
 		m.addAttribute("pageType", "main");
+		String rootPath = System.getProperty("user.dir");
+		String basePath = System.getProperty("basedir");
+		System.out.println("rootPath : "+rootPath);
+		System.out.println("basePath : "+basePath);
 		return "hotel/main";
 	}
 
@@ -33,4 +37,10 @@ public class DefaultController {
     	m.addAttribute("pageType", "reservation");
         return "reservation/reservation";
     }
+	
+	@GetMapping(value = { "/test"})
+	public String test() {
+		return"main/index";
+	}
+
 }
