@@ -33,12 +33,4 @@ public class TodayHtController {
 		return "hotel/thtDetail";
 	}
 
-	@GetMapping("/todayHtRerv")
-	public String todayHtRerv(@RequestParam("tHtNum") int tHtNum, Model m) {
-		TodayHtDTO tht = todayHtDaoInter.detailTodayHt(tHtNum);
-		m.addAttribute("thtlist", tht);
-		return "reservation/reservation";
-
-	}
-
 }

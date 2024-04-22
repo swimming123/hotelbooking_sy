@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="rb">
-<insert id="add" parameterType="rvo">
-		insert into reservation (tHtNum, tHtName, tHtGrade, tHtPrice, tHtImg, tHtWrtDt)
-		values(todayHotel_seq.NEXTVAL, #{tHtName}, #{tHtGrade}, #{tHtPrice}, #{tHtImg}, sysdate )
-	</insert>
-	<delete id ="del" parameterType="int">
-		delete from reservation where tHtNum=#{tHtNum}
-	</delete>
-	<update id="up" parameterType="rvo">
-		update reservation 
-		set tHtName=#{tHtName}, tHtGrade=#{tHtGrade}, tHtPrice=#{tHtPrice}, tHtImg=#{tHtImg}, tHtWrtDt=sysdate  
-		where tHtNum=#{tHtNum}		
-	</update>
 
+	<insert id="insert2" parameterType="rvo">
+		INSERT INTO reservation(NUM,FNAME,LNAME,ADDR1,ADDR2,ZIP,TEL,EMAIL,DATES,DATESS,ADULT,CHILDREN,CARD,CDATE,ATIME,BTIME,CONTENT) values
+		(reservation_seq.nextVal,#{fname},#{lname},#{addr1},#{addr2},#{zip},#{tel},#{email},#{dates},#{datess},#{adult},#{children},#{card}, #{cdate},#{atime},#{btime},#{content})
+	</insert>
+	
 	<select id="list" resultType="rvo">
-		select * from reservation order by 1 desc
+		select * from reservation order by
+		1 desc
 	</select>
-	
-	<select id="detail" parameterType="int" resultType="rvo">
-		select Num, fname, lname, tel  from reservation where Num=#{Num}
-	</select>
-	
-	<insert id="in" parameterType="rvo">
-	insert into reservation (num,fname,lname,addr1,addr2,zip,tel,email,dates,atime,departure1,dtime,adult,children,content,card,cdate)
-	VALUES(reservation_seq.nextVal,#{fname},#{lname},#{addr1},#{addr2},#{zip},#{tel},#{email},#{dates},#{atime},#{departure1},#{dtime},#{adult},
-	#{children},#{content},#{card},#{cdate})
-	</insert>
 
+	<select id="detail2" parameterType="int" resultType="rvo">
+		select num,
+		fname, lname, addr1, addr2, zip, tel, email, dates, datess, adult, children, card, cdate, atime, btime, content from reservation
+		where num=#{num}
+	</select>
+
+	<delete id="delete" parameterType="rvo">
+		delete from reservation where
+		num=#{num}
+	</delete>
+
+	<update id="ub2" parameterType="rvo">
+		update reservation set
+		fname=#{fname},lname=#{lname},zip=#{zip}, tel=#{tel}, email=#{email}, dates=#{dates}, datess=#{datess},  adult=#{adult},
+		children=#{children}, card=#{card}, cdate=#{cdate}, content=#{content}
+		where num=#{num}
+	</update>
 </mapper>

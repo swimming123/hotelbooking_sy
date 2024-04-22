@@ -16,31 +16,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="${rPath }/css/rolling.css" rel="stylesheet" />
   
-
   <!-- css ÅÛÇÃ¸´ Àû¿ë -->
   <%
 	    String pageType = (String) request.getAttribute("pageType");
 	%>
 	<% if ("reservation".equals(pageType)) { %>
 	     <link href="${rPath }/css/reservation.css" rel="stylesheet">
-			<link rel="preconnect" href="https://fonts.googleapis.com">
-			<link rel="preconnect" href="https://fonts.gstatic.com">
-			<link
-				href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-				rel="stylesheet">
-			<script src="${rPath}/js/reservation.jsp"></script>
-			<meta name="viewport" content="width=device-width, initial-scale=1"
-				charset="utf-8">
-			<script>
-			window.onfocus=function(){
-			}
-			window.onload=function(){
-				window.focus();
-				window.moveTo(0,0);
-				window.resizeTo(500,400);
-				window.scrollTo(0,250);
-			}
-			</script>
 	<% }  else if ("todayHtList".equals(pageType) | "main".equals(pageType)){ %>
 	    <!-- Favicon-->
 		<link rel="icon" type="image/x-icon" href="${rPath }/img/favicon.ico" />

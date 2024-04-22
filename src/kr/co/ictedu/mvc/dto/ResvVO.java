@@ -12,14 +12,14 @@ public class ResvVO {
 	private String tel;
 	private String email;
 	private String dates;
-	private String atime;
-	private String departure1;
-	private String dtime;
-	private String adult;
-	private String children;
-	private String content;
+	private String datess;
+	private int adult;
+	private int children;
 	private String card;
 	private String cdate;
+	private String content;
+	private String atime;
+	private String btime;
 	public int getNum() {
 		return num;
 	}
@@ -71,44 +71,26 @@ public class ResvVO {
 	public String getDates() {
 		return dates;
 	}
-	public void setDate1(String dates) {
+	public void setDates(String dates) {
 		this.dates = dates;
 	}
-	public String getAtime() {
-		return atime;
+	public String getDatess() {
+		return datess;
 	}
-	public void setAtime(String atime) {
-		this.atime = atime;
+	public void setDatess(String datess) {
+		this.datess = datess;
 	}
-	public String getDeparture1() {
-		return departure1;
-	}
-	public void setDeparture1(String departure1) {
-		this.departure1 = departure1;
-	}
-	public String getDtime() {
-		return dtime;
-	}
-	public void setDtime(String dtime) {
-		this.dtime = dtime;
-	}
-	public String getAdult() {
+	public int getAdult() {
 		return adult;
 	}
-	public void setAdult(String adult) {
+	public void setAdult(int adult) {
 		this.adult = adult;
 	}
-	public String getChildren() {
+	public int getChildren() {
 		return children;
 	}
-	public void setChildren(String children) {
+	public void setChildren(int children) {
 		this.children = children;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
 	}
 	public String getCard() {
 		return card;
@@ -122,7 +104,23 @@ public class ResvVO {
 	public void setCdate(String cdate) {
 		this.cdate = cdate;
 	}
-	
-	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getAtime() {
+		return atime;
+	}
+	public void setAtime(String atime) {
+		this.atime = atime;
+	}
+	public String getBtime() {
+		return btime;
+	}
+	public void setBtime(String btime) {
+		this.btime = btime;
+	}
 	
 }
