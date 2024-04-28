@@ -7,5 +7,7 @@
 		<typeAlias type="kr.co.ictedu.mvc.dto.TodayHtDTO" alias="thtvo"/>
 		<typeAlias type="kr.co.ictedu.mvc.dto.HtMemberDTO" alias="htmvo"/> 
 		<typeAlias type="kr.co.ictedu.mvc.dto.ResvVO" alias="rvo"/> 
+		<typeAlias type="kr.co.ictedu.mvc.dto.SyBoardDTO" alias="sybvo"/>
+		<typeAlias type="kr.co.ictedu.mvc.dto.BoardCommVO" alias="upcommvo"/>
 	</typeAliases>
 </configuration>

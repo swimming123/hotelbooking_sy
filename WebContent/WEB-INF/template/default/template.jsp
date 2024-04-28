@@ -8,13 +8,15 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <TITLE> New Document </TITLE>
-  <meta charset="euc-kr">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link href="${rPath }/css/rolling.css" rel="stylesheet" />
+	<TITLE> New Document </TITLE>
+	<meta charset="euc-kr">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+	<link href="${rPath }/css/rolling.css" rel="stylesheet" />
   
   <!-- css 템플릿 적용 -->
   <%
@@ -33,6 +35,9 @@
         <link href="${rPath }/css/styles.css" rel="stylesheet" />
 	<% }  else if ("loginForm".equals(pageType)){ %>
 		<link href="${rPath }/css/sign.css" rel="stylesheet" />	
+	<% }  else if ("admboard".equals(pageType)){ %>
+		<link rel="icon" type="image/x-icon" href="${rPath }/img/favicon.ico" />
+		<link href="${rPath }/css/adminStyles.css" rel="stylesheet" />
 	<% } else {%>
 			
 	<% }  %>

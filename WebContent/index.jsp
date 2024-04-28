@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-location = "web/todayHtList" 
+location = "admin/" 
 </script>
 </body>
 </html>

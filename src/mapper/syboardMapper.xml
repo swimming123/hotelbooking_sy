@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sybvo">
+<!-- BNUM,BTITLE,BSUMMARY,BCONTENT,BIMGX,BHIT,BDATE -->
+	<insert id="add" parameterType="sybvo">
+		insert into syboard (bNum, bTitle, bSummary, bContent, bImgx, bDate)
+		values(todayHotel_seq.NEXTVAL, #{bTitle}, #{bSummary}, #{bContent}, #{bImgx}, sysdate )
+	</insert>
+
+	<select id="list" resultType="sybvo">
+		select * from syboard order by 1 desc
+	</select>
+	<select id="detail" parameterType="int" resultType="sybvo">
+    	select bNum, bTitle, bSummary, bContent, bImgx, bDate  from syboard where bNum=#{bNum}
+	</select>
+	
+	<update id="hit" parameterType="int">
+		update syboard set bHit = bHit+1 where bNum=#{bNum}
+	</update>
+	
+	<delete id ="del" parameterType="int">
+		delete from syboard where bNum=#{bNum}
+	</delete>
+
+	<update id="up" parameterType="sybvo">
+		update syboard 
+		set bTitle=#{bTitle}, bSummary=#{bSummary}, bContent=#{bContent}, bImgx=#{bImg}, bDate=sysdate  
+		where bNum=#{bNum}		
+	</update>
+	<insert id="addComm" parameterType="upcommvo">
+		insert into syboard_comm values(syboard_comm_seq.nextVal,#{ucode},#{uwriter},#{ucontent},#{reip},sysdate)
+	</insert>
+	<select id="listComm" resultType="upcommvo" parameterType="int">
+		select num,ucode,uwriter,ucontent,reip, uregdate from syboard_comm where ucode=#{ucode} order by 1 DESC
+	</select>
+</mapper>

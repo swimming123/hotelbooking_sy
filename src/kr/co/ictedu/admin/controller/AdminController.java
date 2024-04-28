@@ -21,23 +21,10 @@ import kr.co.ictedu.mvc.dto.TodayHtDTO;
 @SessionAttributes("pageType")
 @Controller
 public class AdminController {
-	
 	@Autowired
 	private TodayHtDaoInter todayHtDaoInter;
 	
-	@GetMapping(value= {"/main"})
-	public String adminDefaultPage(Model model) {
-		List<TodayHtDTO> thtlist = todayHtDaoInter.listTodayHt();
-	    model.addAttribute("thtlist", thtlist);
-	    for (TodayHtDTO e : thtlist) {
-	        System.out.println("tHtNum: " + e.gettHtNum());
-	        System.out.println("thtName: " + e.gettHtName());
-	        System.out.println("thtGrade: " + e.gettHtGrade());
-	        System.out.println("thtPrice: " + e.gettHtPrice());
-	    }
-	    model.addAttribute("pageType", "todayHtList");
-		return "admin/index";
-	}
+
 	
 	@GetMapping("/todayHtprv")
 	public String todayHtprv(Model m) {
